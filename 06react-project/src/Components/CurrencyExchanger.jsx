@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import useCurrencyInfo from "../Hooks/useCurrencyInfo";
 import SelectCurrency from "./SelectCurrency";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,10 +8,9 @@ const CurrencyExchanger = () => {
   const [baseCurrency, setBaseCurrency] = useState("USD");
   const [toCurrency, settoCurrency] = useState("INR");
   const [amount, setAmount] = useState(0);
-  const { data, error } = useCurrencyInfo(baseCurrency);
+  const { loading, data, error } = useCurrencyInfo(baseCurrency);
 
   const currencies = useMemo(() => data, [data]);
-
   //Swapping Currrency
 
   const swapCurrency = useCallback(() => {
@@ -21,18 +20,17 @@ const CurrencyExchanger = () => {
 
   //conversion
 
-  const getConvertedAmount = () => {
+  const getConvertedAmount = useMemo(() => {
     if (!data || !data.conversion_rates) return 0;
-    const rate = data.conversion_rates[toCurrency];
-    console.log(rate);
+    const rate = data.conversion_rates[toCurrency][1];
 
     const finalAmount = (amount * rate).toFixed(2);
     console.log(finalAmount);
 
     return finalAmount;
-  };
+  }, [amount, data, toCurrency]);
 
-  // if (loading) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
 
   return (
@@ -71,7 +69,7 @@ const CurrencyExchanger = () => {
               ></input>
               <div className="flex justify-end">
                 <button
-                  onClick={() => getConvertedAmount()}
+                  onClick={() => getConvertedAmount}
                   className="px-2 py-1 text-xl mt-3 font-normal text-white bg-blue-500 rounded-md hover:bg-blue-600 outline-none focus:ring-1 focus:ring-blue-600 focus:ring-offset-2"
                 >
                   Convert
@@ -79,7 +77,7 @@ const CurrencyExchanger = () => {
               </div>
             </div>
             <p>
-              {amount} {baseCurrency} = {getConvertedAmount()} {toCurrency}{" "}
+              {amount} {baseCurrency} = {getConvertedAmount} {toCurrency}{" "}
             </p>
           </div>
         </div>
