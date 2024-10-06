@@ -52,7 +52,7 @@ const Todo = () => {
             </button>
           </div>
           <div>
-            {tasks.map((item, index) => {
+            {/* {tasks.map((item, index) => {
               return (
                 <TodoItems
                   tasks={item.task}
@@ -62,7 +62,8 @@ const Todo = () => {
                   deleteTask={deleteTask}
                 ></TodoItems>
               );
-            })}
+            })} */}
+            <TodoItems tasks={tasks} deleteTask={deleteTask} />
           </div>
         </div>
       </div>
