@@ -52,17 +52,6 @@ const Todo = () => {
             </button>
           </div>
           <div>
-            {/* {tasks.map((item, index) => {
-              return (
-                <TodoItems
-                  tasks={item.task}
-                  key={index}
-                  id={item.id}
-                  isComplete={item.completed}
-                  deleteTask={deleteTask}
-                ></TodoItems>
-              );
-            })} */}
             <TodoItems tasks={tasks} deleteTask={deleteTask} />
           </div>
         </div>
