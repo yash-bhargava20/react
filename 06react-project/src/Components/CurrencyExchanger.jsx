@@ -22,7 +22,7 @@ const CurrencyExchanger = () => {
 
   const getConvertedAmount = useMemo(() => {
     if (!data || !data.conversion_rates) return 0;
-    const rate = data.conversion_rates[toCurrency][1];
+    const rate = data.conversion_rates[toCurrency];
 
     const finalAmount = (amount * rate).toFixed(2);
     console.log(finalAmount);

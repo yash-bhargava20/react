@@ -14,7 +14,7 @@ const Header = () => {
                   to="/Home"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-blue-600 font-semibold"
+                      ? "text-blue-600 font-semibold "
                       : "text-gray-600 hover:text-blue-600"
                   }
                 >
@@ -36,7 +36,7 @@ const Header = () => {
                   to="/Blog"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-blue-500"
+                      ? "text-blue-500 font-semibold"
                       : "text-gray-600 hover:text-blue-600"
                   }
                 >
@@ -56,18 +56,18 @@ const Header = () => {
               </ul>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex justify-around items-center  w-1/5 ">
               <Link
                 to="#"
-                className="text-gray-800 hover:border-2 border-blue-700 focus:ring-2 font-medium   rounded-md text-sm px-3 py-1.5 focus:outline-none"
+                className=" w-[80px] text-center text-gray-800 hover:border-2 border-blue-700 transition duration-300 font-medium  rounded-md text-sm px-3 py-1.5 focus:outline-none"
               >
-                <button>Log In</button>
+                Log In
               </Link>
               <Link
                 to="#"
-                className="text-white bg-blue-600 px-3 py-1.5 hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg focus:outline-none "
+                className=" w-[100px] text-center text-white bg-blue-500 px-3 py-1.5 hover:bg-blue-700 transition duration-300 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg focus:outline-none "
               >
-                <button>Register</button>
+                Register
               </Link>
             </div>
           </div>
