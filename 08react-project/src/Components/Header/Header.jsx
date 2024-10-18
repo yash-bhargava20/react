@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+//Navlink and Link: they are used to navigate between the different routes of the application
+//link: It is used in palce of <a> tag for navigation between routes.
+//NavLink: A specialized version of link tat provides additional style in Links. Useful for highlighting the currently activelink in navigation
 const Header = () => {
   return (
     <>
@@ -58,7 +61,7 @@ const Header = () => {
 
             <div className="flex justify-around items-center  w-1/5 ">
               <Link
-                to="#"
+                to="/login"
                 className=" w-[80px] text-center text-gray-800 hover:border-2 border-blue-700 transition duration-300 font-medium  rounded-md text-sm px-3 py-1.5 focus:outline-none"
               >
                 Log In
