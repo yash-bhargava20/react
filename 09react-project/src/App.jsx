@@ -12,9 +12,9 @@ const App = () => {
     <div>
       <h1>Prop Drilling Example</h1>
       <Parent username={username} />
-      <Themeswitcher />
       <Login />
       <Profile />
+      <Themeswitcher />
     </div>
   );
 };
